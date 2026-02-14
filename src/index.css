@@ -1,0 +1,116 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Patrick+Hand&display=swap');
+
+/* ── Design Tokens via Tailwind v4 Theme ── */
+@theme {
+  --color-paper-50: #fdfbf7;
+  --color-paper-100: #f5f1e6;
+  --color-paper-200: #eae4d3;
+  --color-ink-900: #1a1a1a;
+  --color-ink-600: #4a4a4a;
+  --color-ink-400: #717171;
+  --color-accent-red: #d93025;
+  --color-accent-tape: #f4e7c3;
+
+  --font-typewriter: 'Courier Prime', monospace;
+  --font-marker: 'Permanent Marker', cursive;
+  --font-hand: 'Patrick Hand', cursive;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-wiggle: wiggle 3s ease-in-out infinite;
+  --animate-ping-slow: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Custom Utilities for 3D Flip ── */
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ── Keyframes ── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* ── Global Styles ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: var(--font-typewriter);
+  background-color: var(--color-paper-50);
+  background-image: radial-gradient(var(--color-ink-400) 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  color: var(--color-ink-900);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrapbook Utilities ── */
+.paper-shadow {
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tape {
+  background-color: rgba(255, 255, 255, 0.4);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-accent-tape);
+  color: var(--color-ink-900);
+}
