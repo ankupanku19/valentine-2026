@@ -20,6 +20,11 @@ export default function Hero() {
                 <Doodle type="arrow" className="absolute bottom-1/4 left-1/4 w-20 h-20 text-ink-600 rotate-45" />
             </div>
 
+            {/* Crafted By */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 font-typewriter text-xs md:text-sm text-ink-400 opacity-60 tracking-widest uppercase">
+                Crafted by Ankit
+            </div>
+
             <div ref={titleRef} className={`relative z-10 text-center px-4 transition-all duration-1000 ${isTitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}>
 
